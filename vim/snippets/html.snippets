@@ -1,0 +1,528 @@
+# Some useful Unicode entities
+# Non-Breaking Space
+snippet nbs
+	&nbsp;
+# ←
+snippet left
+	&#x2190;
+# →
+snippet right
+	&#x2192;
+# ↑
+snippet up
+	&#x2191;
+# ↓
+snippet down
+	&#x2193;
+# ↩
+snippet return
+	&#x21A9;
+# ⇤
+snippet backtab
+	&#x21E4;
+# ⇥
+snippet tab
+	&#x21E5;
+# ⇧
+snippet shift
+	&#x21E7;
+# ⌃
+snippet control
+	&#x2303;
+# ⌅
+snippet enter
+	&#x2305;
+# ⌘
+snippet command
+	&#x2318;
+# ⌥
+snippet option
+	&#x2325;
+# ⌦
+snippet delete
+	&#x2326;
+# ⌫
+snippet backspace
+	&#x232B;
+# ⎋
+snippet escape
+	&#x238B;
+# Generic Doctype
+snippet doctype HTML 4.01 Strict
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+snippet doctype HTML 4.01 Transitional
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+snippet doctype HTML 5
+	<!DOCTYPE HTML>
+snippet doctype XHTML 1.0 Frameset
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+snippet doctype XHTML 1.0 Strict
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+snippet doctype XHTML 1.0 Transitional
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+snippet doctype XHTML 1.1
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+# HTML Doctype 4.01 Strict
+snippet docts
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+# HTML Doctype 4.01 Transitional
+snippet doct
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+# HTML Doctype 5
+snippet doct5
+	<!DOCTYPE HTML>
+# XHTML Doctype 1.0 Frameset
+snippet docxf
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+# XHTML Doctype 1.0 Strict
+snippet docxs
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+# XHTML Doctype 1.0 Transitional
+snippet docxt
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+# XHTML Doctype 1.1
+snippet docx
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+snippet html
+	<html>
+	${1}
+	</html>
+snippet xhtml
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	${1}
+	</html>
+snippet body
+	<body>
+		${1}
+	</body>
+snippet head
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"`Close()`>
+
+		<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+		${2}
+	</head>
+snippet title
+	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
+snippet script
+	<script type="text/javascript" charset="utf-8">
+		${1}
+	</script>${2}
+snippet scriptsrc
+	<script src="${1}.js" type="text/javascript" charset="utf-8"></script>${2}
+snippet style
+	<style type="text/css" media="${1:screen}">
+		${2}
+	</style>${3}
+snippet base
+	<base href="${1}" target="${2}"`Close()`>
+snippet r
+	<br`Close()[1:]`>
+snippet div
+	<div id="${1:name}">
+		${2}
+	</div>
+# Embed QT Movie
+snippet movie
+	<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+	 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+		<param name="src" value="$1"`Close()`>
+		<param name="controller" value="$4"`Close()`>
+		<param name="autoplay" value="$5"`Close()`>
+		<embed src="${1:movie.mov}"
+			width="${2:320}" height="${3:240}"
+			controller="${4:true}" autoplay="${5:true}"
+			scale="tofit" cache="true"
+			pluginspage="http://www.apple.com/quicktime/download/"
+		`Close()[1:]`>
+	</object>${6}
+snippet fieldset
+	<fieldset id="$1">
+		<legend>${1:name}</legend>
+
+		${3}
+	</fieldset>
+snippet form
+	<form action="${1:`Filename('$1_submit')`}" method="${2:get}" accept-charset="utf-8">
+		${3}
+
+
+	<p><input type="submit" value="Continue &rarr;"`Close()`></p>
+	</form>
+snippet h1
+	<h1 id="${1:heading}">${2:$1}</h1>
+snippet input
+	<input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="${3}"`Close()`>${4}
+snippet label
+	<label for="${2:$1}">${1:name}</label><input type="${3:text/submit/hidden/button}" name="${4:$2}" value="${5}" id="${6:$2}"`Close()`>${7}
+snippet link
+	<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" charset="utf-8"`Close()`>${4}
+snippet mailto
+	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+snippet meta
+	<meta name="${1:name}" content="${2:content}"`Close()`>${3}
+snippet opt
+	<option value="${1:option}">${2:$1}</option>${3}
+snippet optt
+	<option>${1:option}</option>${2}
+snippet select
+	<select name="${1:some_name}" id="${2:$1}">
+		<option value="${3:option}">${4:$3}</option>
+	</select>${5}
+snippet table
+	<table border="${1:0}">
+		<tr><th>${2:Header}</th></tr>
+		<tr><th>${3:Data}</th></tr>
+	</table>${4}
+snippet textarea
+	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
+
+#Work平台代码片段
+#path
+#基本
+snippet f_wk_path
+	<div class="wk-path">
+	    <div class="wk-c">
+		<a href="javascript:;" class="wk-lnk" title="" target="">${1}</a>
+		<i class="wk-arrow"></i>
+		<a href="javascript:;" class="wk-lnk" title="" target="">${2}</a>
+		<i class="wk-arrow"></i>
+		<a href="javascript:;" class="wk-lnk" title="" target="">${3}</a>
+		<i class="wk-arrow"></i>
+		<span>第四层</span>
+	    </div>
+	    <div class="wk-r">
+		<span>其它补充说明</span>
+	    </div>
+	</div>
+	
+#返回
+snippet f_wk_path_return
+	<div class="wk-path">
+	    <div class="wk-l">
+		<a href="javascript:;" class="wk-lnk" title="" target="">返回</a>
+	    </div>
+	    <div class="wk-c">
+		<a href="javascript:;" class="wk-lnk" title="" target="">第一层</a>
+		<i class="wk-arrow"></i>
+		<a href="javascript:;" class="wk-lnk" title="" target="">第二层</a>
+		<i class="wk-arrow"></i>
+		<span>第三层</span>
+	    </div>
+	    <div class="wk-r">
+		<span>其它补充说明</span>
+	    </div>
+	</div>
+#简单
+snippet f_wk_path_simple
+	<div class="wk-path-simple">
+	    <div class="wk-c">
+		<a href="javascript:;" class="wk-lnk" title="" target="">首页</a>
+		<i class="wk-arrow"></i>
+		<a href="javascript:;" class="wk-lnk" title="" target="">第二层</a>
+		<i class="wk-arrow"></i>
+		<a href="javascript:;" class="wk-lnk" title="" target="">第三层</a>
+		<i class="wk-arrow"></i>
+		<span>第四层</span>
+	    </div>
+	</div>
+
+#button
+#灰白色button
+snippet f_wk_btn_s
+	<button class="wk-btn wk-btn-s">${1}</button>
+snippet f_wk_btn
+	<button class="wk-btn">${1}</button>
+snippet f_wk_btn_l
+	<button class="wk-btn wk-btn-l">${1}</button>
+#灰白色带图片button
+snippet f_wk_btn_s_img
+	<button class="wk-btn wk-btn-s wk-btn-img"><i class="wk-ico-search"></i>${1}</button>
+snippet f_wk_btn_s_notxt
+	<button class="wk-btn wk-btn-s wk-btn-notxt"><i class="wk-ico-search"></i></button>
+#灰白色链接button
+snippet f_wk_btn_s_a
+	<a href="javascript:;" target="_self" class="wk-btn wk-btn-s">${1}</a>
+snippet f_wk_btn_a
+	<a href="javascript:;" target="_self" class="wk-btn">${1}</a>
+snippet f_wk_btn_l_a
+	<a href="javascript:;" target="_self" class="wk-btn wk-btn-l">${1}</a>
+#灰白色代图片链接button
+snippet f_wk_btn_s_img_a
+	<a href="javascript:;" target="_self" class="wk-btn wk-btn-s wk-btn-img"><i class="wk-ico-search"></i>${1}</a>
+snippet f_wk_btn_s_notxt_a
+	<a href="javascript:;" target="_self" class="wk-btn wk-btn-s wk-btn-img"><i class="wk-ico-search"></i>${1}</a> 
+
+#蓝色button
+snippet f_wk_blue_btn_s
+	<button class="wk-btn-action wk-btn-s">按钮</button>
+snippet f_wk_blue_btn
+	<button class="wk-btn-action">按钮名称</button>
+snippet f_wk_blue_btn_l
+	<button class="wk-btn-action wk-btn-l">按钮名称</button>
+snippet f_wk_blue_btn_s_img
+	<button class="wk-btn-action wk-btn-s wk-btn-img"><i class="wk-ico-search"></i>按钮</button>
+snippet f_wk_blue_btn_s_notxt
+	<button class="wk-btn-action wk-btn-s wk-btn-notxt"><i class="wk-ico-search"></i></button>
+#蓝色带链接button
+snippet f_wk_blue_btn_s_a
+	<a href="javascript:;" target="_self" class="wk-btn-action wk-btn-s">按钮</a>
+snippet f_wk_blue_btn_a
+	<a href="javascript:;" target="_self" class="wk-btn-action">按钮名称</a>
+snippet f_wk_blue_btn_a_l
+	<a href="javascript:;" target="_self" class="wk-btn-action wk-btn-l">按钮名称</a>
+snippet f_wk_blue_btn_s_a_img
+	<a href="javascript:;" target="_self" class="wk-btn-action wk-btn-s wk-btn-img"><i class="wk-ico-search"></i>按钮</a>
+snippet f_wk_blue_btn_s_a_notxt
+	<a href="javascript:;" target="_self" class="wk-btn-action wk-btn-s wk-btn-notxt"><i class="wk-ico-search"></i></a>
+
+
+#黄色button
+snippet f_wk_yellow_btn
+	<button class="wk-btn-important">按钮名称</button>
+snippet f_wk_yellow_btn_l
+	<button class="wk-btn-important wk-btn-l">按钮名称</button>
+snippet f_wk_yellow_btn_a
+	<a href="javascript:;" target="_self" class="wk-btn-important">按钮名称</a>
+snippet f_wk_yellow_btn_l_a
+	<a href="javascript:;" target="_self" class="wk-btn-important wk-btn-l">按钮名称</a>
+
+#不可用button
+snippet f_wk_dis_btn_s
+	<button class="wk-btn-disabled wk-btn-s" disabled="disabled">按钮</button>
+snippet f_wk_dis_btn
+	<button class="wk-btn-disabled" disabled="disabled">按钮名称</button>
+snippet f_wk_dis_btn_l
+	<button class="wk-btn-disabled wk-btn-l" disabled="disabled">按钮名称</button>
+snippet f_wk_dis_btn_s_a
+	<a href="javascript:;" target="_self" class="wk-btn-disabled wk-btn-s" disabled="disabled">按钮</a>
+snippet f_wk_dis_btn_a
+	<a href="javascript:;" target="_self" class="wk-btn-disabled" disabled="disabled">按钮名称</a>
+snippet f_wk_dis_btn_l_a
+	<a href="javascript:;" target="_self" class="wk-btn-disabled wk-btn-l" disabled="disabled">按钮名称</a>
+
+#按钮组
+snippet f_wk_btn_group
+	<div class="wk-btn-group">
+	    <button class="wk-btn wk-btn-first">三个字</button>
+	    <button class="wk-btn wk-btn-select">选中</button>
+	    <button class="wk-btn">三个字</button>
+	    <button class="wk-btn wk-btn-last">三个字</button>
+	</div>
+snippet f_wk_btn_group_a	
+	<div class="wk-btn-group">
+	    <a href="javascript:;" target="_self" class="wk-btn wk-btn-first">三个字</a>
+	    <a href="javascript:;" target="_self" class="wk-btn wk-btn-select">选中</a>
+	    <a href="javascript:;" target="_self" class="wk-btn">三个字</a>
+	    <a href="javascript:;" target="_self" class="wk-btn wk-btn-last">三个字</a>
+	</div>
+	    
+#日历
+snippet f_wk_calendar
+	<input type="text" readonly="readonly" class="wk-text wk-text-l wk-text-calendar" data-min-date="2011-09-07" data-max-date="2012-12-21" value=""/>
+
+#下拉列表
+snippet f_wk_select
+	<select class="wk-select">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>   
+snippet f_wk_select_l
+	<select class="wk-select wk-select-l">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>
+
+snippet f_wk_select_warning
+	<select class="wk-select wk-select-warning">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>
+	
+snippet f_wk_select_warning_l
+	<select class="wk-select wk-select-l wk-select-warning">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>
+	    
+snippet f_wk_select_dis
+	<select class="wk-select wk-select-disabled" disabled="disabled">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>
+snippet f_wk_select_dis_l
+	<select class="wk-select wk-select-l wk-select-disabled" disabled="disabled">
+	    <option value="">选项</option>
+	    <option value="">选项二</option>
+	    <option value="">选项三</option>
+	</select>
+
+#浮层
+snippet f_wk_dialog
+	<!-- 高宽用class自定义 -->
+	<div class="wk-dialog" style="width: 240px; display: block;">
+	    <div class="wk-t">
+		<strong class="wk-title">${1}</strong>
+		<a href="javascript:;" target="_self" class="wk-close"></a>
+	    </div>
+	    <div class="wk-d">
+		<div class="wk-m">
+		    <!--浮层内容-->
+		    ${2}
+		</div>
+		<div class="wk-b">
+		    <!--浮层操作button-->
+		    ${3}
+		</div>
+	    </div>
+	</div>
+
+snippet f_wk_dialog_l
+	<!-- 高宽用class自定义 -->
+	<div class="wk-dialog wk-dialog-l" style="width: 500px; display: block; margin-top: 8px;">
+	    <div class="wk-t">
+		<strong class="wk-title">${1}</strong>
+		<a href="javascript:;" target="_self" class="wk-close"></a>
+	    </div>
+	    <div class="wk-d">
+		<div class="wk-m">
+		    <!--浮层内容-->
+		    ${2}
+		</div>
+		<div class="wk-b">
+		    <!--浮层操作button-->
+		    ${3}
+		</div>
+	    </div>
+	</div>
+
+#页面标题
+snippet f_wk_page_title
+	<div class="wk-page-title" style="">
+	    <h2 class="wk-title">页面标题</h2>
+	    <a href="javascript:;" title="" target="_self" class="wk-lnk">链接文字</a>
+	</div>
+
+#分页
+#居右分页
+snippet f_wk_paging_r
+	<div class="wk-paging wk-paging-align-right">
+	    <span class="wk-page-list">
+		<a href="javascript:;" target="_self" class="wk-prev">
+		    <i class="wk-ico"></i>
+		</a>
+		<a href="javascript:;" target="_self" class="wk-prev wk-prev-disabled">
+		    <i class="wk-ico"></i>
+		</a>
+
+		<span class="wk-omit">...</span>
+		<a href="javascript:;" target="_self">1</a><a href="javascript:;" target="_self" class="wk-current">2</a><a href="javascript:;" target="_self">3</a><a href="javascript:;" target="_self">4</a><a href="javascript:;" target="_self">5</a><span class="wk-omit">...</span><a href="javascript:;" target="_self">6</a><a href="javascript:;" target="_self">7</a>
+		<a href="javascript:;" target="_self" class="wk-next wk-next-disabled">
+		    <span class="wk-txt">下一页</span>
+		    <i class="wk-ico"></i>
+		</a>
+		<a href="javascript:;" target="_self" class="wk-next">
+		    <span class="wk-txt">下一页</span>
+		    <i class="wk-ico"></i>
+		</a>
+	    </span>
+	    <span class="wk-paging-total">共7页</span>
+	    <span class="wk-number"><span>到</span><input maxlength="6" class="wk-text"><span>页</span></span>
+	    <span class="wk-forward"><button class="wk-btn wk-btn-s">确定</button></span>
+	</div>
+#居中
+snippet f_wk_paging_c
+	<div class="wk-paging wk-paging-align-center">
+	    <span class="wk-page-list">
+		<a href="javascript:;" target="_self" class="wk-prev">
+		    <i class="wk-ico"></i>
+		</a>
+		<a href="javascript:;" target="_self" class="wk-prev wk-prev-disabled">
+		    <i class="wk-ico"></i>
+		</a>
+
+		<span class="wk-omit">...</span>
+		<a href="javascript:;" target="_self">1</a><a href="javascript:;" target="_self" class="wk-current">2</a><a href="javascript:;" target="_self">3</a><a href="javascript:;" target="_self">4</a><a href="javascript:;" target="_self">5</a><span class="wk-omit">...</span><a href="javascript:;" target="_self">6</a><a href="javascript:;" target="_self">7</a>
+		<a href="javascript:;" target="_self" class="wk-next wk-next-disabled">
+		    <span class="wk-txt">下一页</span>
+		    <i class="wk-ico"></i>
+		</a>
+		<a href="javascript:;" target="_self" class="wk-next">
+		    <span class="wk-txt">下一页</span>
+		    <i class="wk-ico"></i>
+		</a>
+	    </span>
+	    <span class="wk-paging-total">共7页</span>
+	    <span class="wk-number"><span>到</span><input maxlength="6" class="wk-text"><span>页</span></span>
+	    <span class="wk-forward"><button class="wk-btn wk-btn-s">确定</button></span>
+	</div>
+
+#居左
+snippet f_wk_paging_l
+	<div class="wk-paging">
+	    <span class="wk-page-list">
+		<a href="javascript:;" target="_self" class="wk-prev wk-prev-disabled">
+		    <i class="wk-ico"></i>
+		</a>
+
+		<a href="javascript:;" target="_self" class="wk-current">1</a><a href="javascript:;" target="_self">2</a><a href="javascript:;" target="_self">3</a><a href="javascript:;" target="_self">4</a><a href="javascript:;" target="_self">5</a><a href="javascript:;" target="_self">6</a><a href="javascript:;" target="_self">7</a>
+
+		<a href="javascript:;" target="_self" class="wk-next">
+		    <span class="wk-txt">下一页</span>
+		    <i class="wk-ico"></i>
+		</a>
+	    </span>
+	    <span class="wk-paging-total">共7页</span>
+	    <span class="wk-number"><span>到</span><input maxlength="6" class="wk-text"><span>页</span></span>
+	    <span class="wk-forward"><button class="wk-btn wk-btn-s">确定</button></span>
+	</div>
+
+#选项卡
+snippet f_wk_tab
+	<div class="wk-tab">
+	    <div class="wk-t">
+		<ul class="wk-tab-ul">
+		    <li class="wk-tab-t wk-tab-current"><a href="javascript:;" target="_self">选项卡1</a></li>
+		    <li class="wk-tab-t"><a href="javascript:;" target="_self">选项卡2</a></li>
+		    <li class="wk-tab-t"><a href="javascript:;" target="_self">选项卡3</a></li>
+		</ul>
+	    </div>
+	    <div class="wk-d" style="height: 18px;">
+		<div class="wk-tab-b" style="display: block; ">tab1</div>
+		<div class="wk-tab-b" style="display: none; ">tab2</div>
+		<div class="wk-tab-b" style="display: none; ">tab3</div>
+	    </div>
+	</div>
+snippet f_wk_tab_l
+	<div class="wk-tab wk-tab-l">
+	    <div class="wk-t">
+		<ul class="wk-tab-ul">
+		    <li class="wk-tab-t wk-tab-current"><a href="javascript:;" target="_self">选项卡1</a></li>
+		    <li class="wk-tab-t"><a href="javascript:;" target="_self">选项卡2</a></li>
+		    <li class="wk-tab-t"><a href="javascript:;" target="_self">选项卡3</a></li>
+		</ul>
+	    </div>
+	    <div class="wk-d" style="height: 18px;">
+		<div class="wk-tab-b" style="display: block; ">tab1</div>
+		<div class="wk-tab-b" style="display: none; ">tab2</div>
+		<div class="wk-tab-b" style="display: none; ">tab3</div>
+	    </div>
+	</div>
+
