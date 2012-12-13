@@ -1,9 +1,10 @@
+colorscheme ron
 set nocompatible
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set number
 syntax on
-set foldmethod=syntax
+"set foldmethod=syntax
 filetype plugin on
 filetype plugin indent on
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2
@@ -48,3 +49,14 @@ au BufRead,BufNewFile *.vm set ft=html fileencoding=gbk syntax=velocity
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS 
 
 call pathogen#infect()
+"powerline{
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set t_Co=256
+"let g:Powerline_symbols = 'fancy'
+"}
+
+:map <C-t> :CommandT<CR>
+set tags=~/.tags
+:map <C-e> :NERDTree<CR>
+:map <F8> :TagbarToggle<CR>
